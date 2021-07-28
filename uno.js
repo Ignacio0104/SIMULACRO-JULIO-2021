@@ -1,4 +1,5 @@
 /*
+
 AUTOR:Ignacio Smirlian
 E-mail: ignaciosmirlian@gmail.com
 
@@ -19,75 +20,102 @@ Ejercicio 01
       disponibles. 
    c) Cuántas unidades de HDD hay en total.*/
 
-
-function mostrar()
-{
-   var primerSsd;
-   var precioDiscoBarato;
-   var marcaDiscoBarato;
-   var cantidadDiscoBarato;
-
-   primerSsd=true;
-
-	for(i=0;i<5;i=i+1)
+   
+   function mostrar()
    {
-      var tipoProducto;
-      var precioProducto;
-      var cantidadProducto;
-      var marcaProducto;
-      var capacidadProducto;
-
-      tipoProducto=prompt("Ingrese el tipo de disco (HDD, SSD o SSDM2)");
-
-      while(tipoProducto!="HDD"&&tipoProducto!="SSD"&&tipoProducto!="SSDM2")
+      var primerSsd;
+      var precioDiscoBarato;
+      var marcaDiscoBarato;
+      var cantidadDiscoBarato;
+      var primerHdd;
+      var precioDiscoCaro;
+      var capacidadDiscoCaro;
+      var cantidadDiscoCaro;
+      var cantidadHddTotal;
+   
+      primerHdd=true;
+      primerSsd=true;
+      cantidadHddTotal=0;
+   
+      for(i=0;i<5;i=i+1)
       {
-         tipoProducto=prompt("Error, dato ingresado inválido");
-      }
-
-      precioProducto=prompt("Ingrese el precio del disco");
-      precioProducto=parseInt(precioProducto);
-
-      while(precioProducto<5000||precioProducto>18000)
-      {
-         precioProducto=prompt("Error, precio fuera de rango, vuelva a ingresarlo");
-         precioProducto=parseInt(precioProducto);
-      }
-
-      cantidadProducto=prompt("Ingrese la cantidad de discos");
-      cantidadProducto=parseInt(cantidadProducto);
-
-      while(cantidadProducto<1||cantidadProducto>50)
-      {
-         cantidadProducto=prompt("Error, cantidad fuera de rango. Vuelva a ingresarla");
-         cantidadProducto=parseInt(cantidadProducto);
-      }
-
-      marcaProducto=prompt("Ingrese la marca del producto (Seagate, Western Digital o Kingston)");
-
-      while(marcaProducto!="Seagate"&&marcaProducto!="Western Digital"&&marcaProducto!="Kingston")
-      {
-         marcaProducto=prompt("Error, dato ingresado inválido. Vuelva a ingresarlo");
-      }
-
-      capacidadProducto=prompt("Ingrese la capacidad del disco (250Gb, 500Gb, 1Tb o 2Tb)");
-
-      while(capacidadProducto!="250Gb"&&capacidadProducto!="500Gb"&&capacidadProducto!="1Tb"&&capacidadProducto!="2Tb")
-      {
-         capacidadProducto=prompt("Error, dato ingresado inválido. Vuelva a ingresarlo");
-      }
-
-      if(tipoProducto=="SSD")
-      {
-         if(precioProducto<precioDiscoBarato||primerSsd)
+         var tipoProducto;
+         var precioProducto;
+         var cantidadProducto;
+         var marcaProducto;
+         var capacidadProducto;
+   
+         tipoProducto=prompt("Ingrese el tipo de disco (HDD, SSD o SSDM2)");
+   
+         while(tipoProducto!="HDD"&&tipoProducto!="SSD"&&tipoProducto!="SSDM2")
          {
-            precioDiscoBarato=precioProducto;
-            marcaDiscoBarato=marcaProducto;
-            cantidadDiscoBarato=cantidadProducto;
-            primerSsd=false;
+            tipoProducto=prompt("Error, dato ingresado inválido");
          }
-      }
+   
+         precioProducto=prompt("Ingrese el precio del disco");
+         precioProducto=parseInt(precioProducto);
+   
+         while(precioProducto<5000||precioProducto>18000)
+         {
+            precioProducto=prompt("Error, precio fuera de rango, vuelva a ingresarlo");
+            precioProducto=parseInt(precioProducto);
+         }
+   
+         cantidadProducto=prompt("Ingrese la cantidad de discos");
+         cantidadProducto=parseInt(cantidadProducto);
+   
+         while(cantidadProducto<1||cantidadProducto>50)
+         {
+            cantidadProducto=prompt("Error, cantidad fuera de rango. Vuelva a ingresarla");
+            cantidadProducto=parseInt(cantidadProducto);
+         }
+   
+         marcaProducto=prompt("Ingrese la marca del producto (Seagate, Western Digital o Kingston)");
+   
+         while(marcaProducto!="Seagate"&&marcaProducto!="Western Digital"&&marcaProducto!="Kingston")
+         {
+            marcaProducto=prompt("Error, dato ingresado inválido. Vuelva a ingresarlo");
+         }
+   
+         capacidadProducto=prompt("Ingrese la capacidad del disco (250Gb, 500Gb, 1Tb o 2Tb)");
+   
+         while(capacidadProducto!="250Gb"&&capacidadProducto!="500Gb"&&capacidadProducto!="1Tb"&&capacidadProducto!="2Tb")
+         {
+            capacidadProducto=prompt("Error, dato ingresado inválido. Vuelva a ingresarlo");
+         }
+   
+         if(tipoProducto=="HDD")
+         {
+            cantidadHddTotal=cantidadHddTotal+cantidadProducto;
 
+            if(precioProducto>precioDiscoCaro||primerHdd)
+            {
+              precioDiscoCaro=precioProducto;
+              capacidadDiscoCaro=capacidadProducto;
+              cantidadDiscoCaro=cantidadProducto;
+              primerHdd=false;
+            }
+         }
+
+         if(tipoProducto=="SSD")
+         {
+            if(precioProducto<precioDiscoBarato||primerSsd)
+            {
+               precioDiscoBarato=precioProducto;
+               marcaDiscoBarato=marcaProducto;
+               cantidadDiscoBarato=cantidadProducto;
+               primerSsd=false;
+            }
+         }
+   
+      }
+   
+      alert("El disco HDD más caro tiene una capacidad de almacenamiento de " + capacidadDiscoCaro + " y se compraron " 
+      + cantidadDiscoCaro + " unidades");
+
+      alert("El disco SSD más barato es de la marca " + marcaDiscoBarato + " y se compraron " 
+      + cantidadDiscoBarato + " unidades");
+
+      alert("La cantidad total de HDD comprados es de " + cantidadHddTotal);
    }
 
-   alert("El disco SSD más barato es de la marca " + marcaDiscoBarato + " y se compraron " + cantidadDiscoBarato + " unidades");
-}
