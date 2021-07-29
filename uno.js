@@ -8,6 +8,7 @@ Ejercicio 01
    Nos dedicamos a la venta exclusiva de Discos rígidos.
    Debemos realizar la carga de 5(cinco) productos, de cada uno debo obtener los 
    siguientes datos:
+
    Tipo: (validar "HDD", "SSD" o "SSDM2")
    Precio: (validar entre 5000 y 18000),
    Cantidad de unidades (no puede ser 0 o negativo y no debe superar las 50 Unidades).
@@ -18,7 +19,9 @@ Ejercicio 01
    a) Del más barato de los SSD, la cantidad de unidades y marca.
    b) Del tipo HDD, el de mayor precio, capacidad de almacenamiento y cantidad de unidades
       disponibles. 
-   c) Cuántas unidades de HDD hay en total.*/
+   c) Cuántas unidades de HDD hay en total.
+
+*/
 
    
    function mostrar()
@@ -113,6 +116,7 @@ Ejercicio 01
       alert("El disco HDD más caro tiene una capacidad de almacenamiento de " + capacidadDiscoCaro + " y se compraron " 
       + cantidadDiscoCaro + " unidades");
 
+      //Validarlo con If por si no hay ningún SSD
       alert("El disco SSD más barato es de la marca " + marcaDiscoBarato + " y se compraron " 
       + cantidadDiscoBarato + " unidades");
 

@@ -18,7 +18,7 @@ Ejercicio 02
   a)	El importe total a pagar bruto, sin descuento.
   b)	El importe total a pagar con descuento (solo si corresponde)
   c)	Informar el tipo con más cantidad de bolsas.
-  d)	El tipo de la compra más barata. (sobre el Bruto sin descuento)
+  d)	El tipo de la compra más barata. (sobre el Bruto sin descuento) ESTE ESTA MAL. ES COMPRA NO PRODUCTO
 */
 
 function mostrar()
